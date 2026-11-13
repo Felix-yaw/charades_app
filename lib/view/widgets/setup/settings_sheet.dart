@@ -33,7 +33,7 @@ class SettingsSheet extends StatelessWidget {
           vertical: getProportionateScreenHeight(20),
         ),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: AppColors.surfaceDark,
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(getProportionateScreenWidth(28)),
           ),
@@ -57,7 +57,7 @@ class SettingsSheet extends StatelessWidget {
               SizedBox(height: getProportionateScreenHeight(18)),
               Text(
                 'Settings',
-                style: AppTypography.heading.copyWith(color: AppColors.ink),
+                style: AppTypography.heading.copyWith(color: AppColors.white),
               ),
               SizedBox(height: getProportionateScreenHeight(20)),
               const DurationSelector(),
@@ -66,7 +66,7 @@ class SettingsSheet extends StatelessWidget {
               SizedBox(height: getProportionateScreenHeight(24)),
               GradientButton(
                 label: 'Done',
-                gradient: AppGradients.blueButton,
+                gradient: AppGradients.yellowButton,
                 onPressed: () => Navigator.of(context).pop(),
               ),
               SizedBox(height: getProportionateScreenHeight(8)),

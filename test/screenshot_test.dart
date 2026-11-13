@@ -19,9 +19,12 @@ void main() {
       matchesGoldenFile('goldens/1_home.png'),
     );
 
-    await tester.ensureVisible(packTile('Animals'));
+    await tester.tap(find.byTooltip('Custom words'));
     await tester.pumpAndSettle();
-    await tester.tap(packTile('Animals'));
+    await tester.enterText(find.byType(TextField), 'Unicorn');
+    await tester.tap(find.text('Add'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Play My Words'));
     await tester.pump(const Duration(seconds: 4));
     await expectLater(
       find.byType(CharadesApp),

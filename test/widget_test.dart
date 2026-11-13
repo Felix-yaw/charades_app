@@ -6,7 +6,7 @@ void main() {
     await tester.pumpWidget(const CharadesApp());
 
     expect(find.text('@charades'), findsOneWidget);
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
     expect(find.text('PICK A PACK'), findsOneWidget);
   });
 }

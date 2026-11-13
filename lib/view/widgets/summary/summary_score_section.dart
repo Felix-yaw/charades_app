@@ -37,7 +37,7 @@ class SummaryScoreSection extends StatelessWidget {
               Text(
                 'Round over!',
                 textAlign: TextAlign.center,
-                style: AppTypography.display.copyWith(color: AppColors.ink),
+                style: AppTypography.display.copyWith(color: AppColors.white),
               ),
               SizedBox(height: getProportionateScreenHeight(16)),
               Container(

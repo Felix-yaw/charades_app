@@ -59,7 +59,7 @@ class WordChipList extends StatelessWidget {
                       vertical: getProportionateScreenHeight(8),
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.surface,
+                      color: AppColors.surfaceDark,
                       borderRadius: BorderRadius.circular(
                           getProportionateScreenWidth(16)),
                       boxShadow: [
@@ -73,7 +73,7 @@ class WordChipList extends StatelessWidget {
                     child: Text(
                       wordCard.text,
                       style: AppTypography.label.copyWith(
-                        color: AppColors.ink,
+                        color: AppColors.white,
                         fontSize: getProportionateScreenWidth(14),
                       ),
                     ),

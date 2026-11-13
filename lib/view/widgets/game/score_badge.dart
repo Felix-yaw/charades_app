@@ -21,7 +21,7 @@ class ScoreBadge extends StatelessWidget {
             vertical: getProportionateScreenHeight(7),
           ),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceDark,
             borderRadius:
                 BorderRadius.circular(getProportionateScreenWidth(16)),
             boxShadow: [
@@ -44,7 +44,7 @@ class ScoreBadge extends StatelessWidget {
                 'Score: $score',
                 key: ValueKey<int>(score),
                 style: AppTypography.title.copyWith(
-                  color: AppColors.ink,
+                  color: AppColors.white,
                   fontSize: getProportionateScreenWidth(15),
                 ),
               ),

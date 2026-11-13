@@ -25,7 +25,7 @@ class CountdownDisplay extends StatelessWidget {
           child: Text(
             '$countdownValue',
             style: AppTypography.display.copyWith(
-              color: AppColors.blue,
+              color: AppColors.yellow,
               fontSize: getProportionateScreenWidth(110),
             ),
           ),

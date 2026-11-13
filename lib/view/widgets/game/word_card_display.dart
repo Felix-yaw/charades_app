@@ -19,13 +19,14 @@ class WordCardDisplay extends StatelessWidget {
         vertical: getProportionateScreenHeight(36),
       ),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: const Color(0xFF1B1038),
         borderRadius: BorderRadius.circular(getProportionateScreenWidth(32)),
+        border: Border.all(color: AppColors.blue, width: 2),
         boxShadow: [
           BoxShadow(
-            color: AppColors.shadow,
-            offset: Offset(0, getProportionateScreenHeight(12)),
-            blurRadius: getProportionateScreenWidth(28),
+            color: AppColors.blue.withValues(alpha: 0.35),
+            blurRadius: getProportionateScreenWidth(26),
+            spreadRadius: 2,
           ),
         ],
       ),
@@ -35,7 +36,7 @@ class WordCardDisplay extends StatelessWidget {
           Text(
             wordCard.category.label.toUpperCase(),
             style: AppTypography.label.copyWith(
-              color: AppColors.blue,
+              color: AppColors.yellow,
               fontSize: getProportionateScreenWidth(14),
             ),
           ),
@@ -45,7 +46,7 @@ class WordCardDisplay extends StatelessWidget {
             child: Text(
               wordCard.text,
               textAlign: TextAlign.center,
-              style: AppTypography.display.copyWith(color: AppColors.ink),
+              style: AppTypography.display.copyWith(color: AppColors.white),
             ),
           ),
         ],

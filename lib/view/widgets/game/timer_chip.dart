@@ -27,7 +27,7 @@ class TimerChip extends StatelessWidget {
             vertical: getProportionateScreenHeight(7),
           ),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceDark,
             borderRadius:
                 BorderRadius.circular(getProportionateScreenWidth(16)),
             boxShadow: [
@@ -44,7 +44,7 @@ class TimerChip extends StatelessWidget {
               Icon(
                 Icons.timer_rounded,
                 size: getProportionateScreenWidth(18),
-                color: isLow ? AppColors.danger : AppColors.blue,
+                color: isLow ? AppColors.danger : AppColors.yellow,
               ),
               SizedBox(width: getProportionateScreenWidth(5)),
               FittedBox(
@@ -52,7 +52,7 @@ class TimerChip extends StatelessWidget {
                 child: Text(
                   formatRoundTime(remainingSeconds),
                   style: AppTypography.title.copyWith(
-                    color: isLow ? AppColors.danger : AppColors.ink,
+                    color: isLow ? AppColors.danger : AppColors.white,
                     fontSize: getProportionateScreenWidth(15),
                   ),
                 ),

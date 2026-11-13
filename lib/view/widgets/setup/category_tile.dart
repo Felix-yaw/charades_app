@@ -32,7 +32,7 @@ class CategoryTile extends StatelessWidget {
         type: MaterialType.transparency,
         child: Ink(
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: bubbleColor,
             borderRadius: borderRadius,
             boxShadow: [
               BoxShadow(
@@ -45,8 +45,7 @@ class CategoryTile extends StatelessWidget {
           child: InkWell(
             borderRadius: borderRadius,
             onTap: onTap,
-            splashColor: AppColors.blueSoft,
-            highlightColor: AppColors.surfaceSoft,
+            splashColor: Colors.white30,
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(12),
@@ -55,14 +54,8 @@ class CategoryTile extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    width: double.infinity,
+                  SizedBox(
                     height: getProportionateScreenWidth(78),
-                    decoration: BoxDecoration(
-                      color: bubbleColor,
-                      borderRadius: BorderRadius.circular(
-                          getProportionateScreenWidth(20)),
-                    ),
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
@@ -82,7 +75,7 @@ class CategoryTile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: getProportionateScreenHeight(10)),
+                  SizedBox(height: getProportionateScreenHeight(8)),
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(

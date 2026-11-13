@@ -17,8 +17,8 @@ class GotItButton extends StatelessWidget {
         return GradientButton(
           label: 'Got it',
           icon: Icons.check_rounded,
-          gradient: AppGradients.greenButton,
-          foregroundColor: AppColors.white,
+          gradient: AppGradients.yellowButton,
+          foregroundColor: AppColors.ink,
           onPressed: isRoundActive
               ? () => context.read<GameViewModel>().markGuessed()
               : null,

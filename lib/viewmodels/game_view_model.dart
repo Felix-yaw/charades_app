@@ -48,6 +48,7 @@ class GameViewModel extends ChangeNotifier {
   Timer? _ticker;
   StreamSubscription<AccelerometerSample>? _tiltSubscription;
   bool _motionControlsEnabled = true;
+  bool _reverseGestures = false;
 
   GamePhase get phase => _phase;
   WordCategory get selectedCategory => _selectedCategory;
@@ -70,6 +71,13 @@ class GameViewModel extends ChangeNotifier {
   int get score => _guessedWords.length;
   bool get isRoundActive => _phase == GamePhase.playing;
   bool get motionControlsEnabled => _motionControlsEnabled;
+  bool get reverseGestures => _reverseGestures;
+
+  void setReverseGestures(bool enabled) {
+    if (enabled == _reverseGestures) return;
+    _reverseGestures = enabled;
+    notifyListeners();
+  }
 
   void setMotionControlsEnabled(bool enabled) {
     if (enabled == _motionControlsEnabled) return;
@@ -149,11 +157,22 @@ class GameViewModel extends ChangeNotifier {
   }
 
   void startRound() {
-    _ticker?.cancel();
-    _deck = _wordRepository.shuffledDeck(
-      _selectedCategory,
-      customWords: _customWords,
+    _beginRound(
+      _wordRepository.shuffledDeck(
+        _selectedCategory,
+        customWords: _customWords,
+      ),
     );
+  }
+
+  void startDailyChallenge() {
+    _selectedCategory = WordCategory.all;
+    _beginRound(_wordRepository.dailyDeck(DateTime.now()));
+  }
+
+  void _beginRound(List<WordCard> deck) {
+    _ticker?.cancel();
+    _deck = deck;
     _guessedWords = const [];
     _passedWords = const [];
     _currentCard = null;
@@ -269,9 +288,9 @@ class GameViewModel extends ChangeNotifier {
     final TiltDirection? direction =
         _tiltDetector.processSample(angle, sample.timestamp);
     if (direction == TiltDirection.up) {
-      markGuessed();
+      _reverseGestures ? pass() : markGuessed();
     } else if (direction == TiltDirection.down) {
-      pass();
+      _reverseGestures ? markGuessed() : pass();
     }
   }
 

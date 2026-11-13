@@ -13,7 +13,7 @@ class EndRoundButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColors.surfaceDark,
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
@@ -28,7 +28,7 @@ class EndRoundButton extends StatelessWidget {
         icon: Icon(
           Icons.close_rounded,
           size: getProportionateScreenWidth(24),
-          color: AppColors.ink,
+          color: AppColors.white,
         ),
         onPressed: () async {
           final bool confirmed = await showConfirmDialog(

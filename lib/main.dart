@@ -33,7 +33,7 @@ class CharadesApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: AppTypography.fontFamily,
           colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.blue,
+            seedColor: AppColors.yellow,
             brightness: Brightness.dark,
           ),
           scaffoldBackgroundColor: AppColors.backgroundTop,

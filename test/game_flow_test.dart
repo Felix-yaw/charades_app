@@ -22,7 +22,7 @@ void main() {
     await tester.pumpWidget(const CharadesApp());
 
     expect(find.text('@charades'), findsOneWidget);
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
 
     await tapVisible(tester, packTile('Animals'));
     await tester.pump();
@@ -83,7 +83,7 @@ void main() {
   testWidgets('round ends when the timer runs out', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('SUPER MIX'));
+    await tapVisible(tester, find.text('Play Now'));
     await tester.pump(const Duration(seconds: 64));
 
     expect(find.text('Round over!'), findsOneWidget);

@@ -43,7 +43,7 @@ class _CustomWordInputState extends State<CustomWordInput> {
               hintStyle: AppTypography.body
                   .copyWith(color: AppColors.secondary),
               filled: true,
-              fillColor: AppColors.surfaceSoft,
+              fillColor: AppColors.surfaceDark,
               contentPadding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(16),
                 vertical: getProportionateScreenHeight(14),
@@ -66,7 +66,7 @@ class _CustomWordInputState extends State<CustomWordInput> {
           type: MaterialType.transparency,
           child: Ink(
             decoration: BoxDecoration(
-              gradient: AppGradients.blueButton,
+              gradient: AppGradients.yellowButton,
               borderRadius:
                   BorderRadius.circular(getProportionateScreenWidth(18)),
             ),
@@ -82,7 +82,7 @@ class _CustomWordInputState extends State<CustomWordInput> {
                 child: Text(
                   'Add',
                   style: AppTypography.button.copyWith(
-                    color: AppColors.white,
+                    color: AppColors.ink,
                     fontSize: getProportionateScreenWidth(16),
                   ),
                 ),

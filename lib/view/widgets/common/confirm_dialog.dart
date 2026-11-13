@@ -17,7 +17,7 @@ Future<bool> showConfirmDialog(
   final bool? confirmed = await showDialog<bool>(
     context: context,
     builder: (dialogContext) => Dialog(
-      backgroundColor: AppColors.surface,
+      backgroundColor: AppColors.surfaceDark,
       insetPadding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(24),
       ),
@@ -43,12 +43,12 @@ Future<bool> showConfirmDialog(
                     width: getProportionateScreenWidth(56),
                     height: getProportionateScreenWidth(56),
                     decoration: const BoxDecoration(
-                      gradient: AppGradients.blueButton,
+                      gradient: AppGradients.yellowButton,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
                       Icons.flag_rounded,
-                      color: AppColors.white,
+                      color: AppColors.ink,
                       size: getProportionateScreenWidth(28),
                     ),
                   ),
@@ -57,7 +57,7 @@ Future<bool> showConfirmDialog(
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: AppTypography.heading.copyWith(color: AppColors.ink),
+                  style: AppTypography.heading.copyWith(color: AppColors.white),
                 ),
                 SizedBox(height: getProportionateScreenHeight(10)),
                 Text(
@@ -71,7 +71,7 @@ Future<bool> showConfirmDialog(
                 SizedBox(height: getProportionateScreenHeight(24)),
                 GradientButton(
                   label: confirmLabel,
-                  gradient: AppGradients.blueButton,
+                  gradient: AppGradients.yellowButton,
                   onPressed: () => Navigator.of(dialogContext).pop(true),
                 ),
                 SizedBox(height: getProportionateScreenHeight(10)),

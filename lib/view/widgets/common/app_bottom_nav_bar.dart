@@ -21,7 +21,7 @@ class AppBottomNavBar extends StatelessWidget {
         vertical: getProportionateScreenHeight(6),
       ),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColors.surfaceDark,
         borderRadius:
             BorderRadius.circular(getProportionateScreenWidth(26)),
         boxShadow: [

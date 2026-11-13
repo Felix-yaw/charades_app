@@ -1,5 +1,5 @@
 import 'package:charades_app/main.dart';
-import 'package:charades_app/view/widgets/setup/stat_tile.dart';
+import 'package:charades_app/view/widgets/setup/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -14,14 +14,14 @@ void main() {
     await tester.pumpAndSettle();
 
     final double tileHeightBefore =
-        tester.getSize(find.byType(StatTile).first).height;
+        tester.getSize(find.byType(CategoryTile).first).height;
 
     tester.view.physicalSize = const Size(720, 1600);
     tester.binding.handleMetricsChanged();
     await tester.pumpAndSettle();
 
     final double tileHeightAfter =
-        tester.getSize(find.byType(StatTile).first).height;
+        tester.getSize(find.byType(CategoryTile).first).height;
 
     expect(tileHeightAfter, greaterThan(tileHeightBefore));
   });

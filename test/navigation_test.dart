@@ -19,13 +19,13 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Custom words'));
     expect(find.text('My Words'), findsOneWidget);
     expect(find.text('No custom words yet. Add some to build your own pack.'),
         findsOneWidget);
-    expect(find.text('SUPER MIX'), findsNothing);
+    expect(find.text('Play Now'), findsNothing);
 
     await tapVisible(tester, find.byTooltip('History'));
     expect(find.byType(HistoryScreen), findsOneWidget);
@@ -33,7 +33,7 @@ void main() {
         findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Packs'));
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
   });
 
   testWidgets('custom words feed the My Words pack on the packs tab',
@@ -49,9 +49,9 @@ void main() {
     expect(find.text('1 word in your pack'), findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Packs'));
-    expect(find.text('My Words'), findsOneWidget);
+    expect(packTile('My Words'), findsOneWidget);
 
-    await tapVisible(tester, find.text('My Words'));
+    await tapVisible(tester, packTile('My Words'));
     await tester.pump(const Duration(seconds: 4));
 
     expect(find.text('Got it'), findsOneWidget);

@@ -19,7 +19,7 @@ class CustomWordRow extends StatelessWidget {
         vertical: getProportionateScreenHeight(4),
       ),
       decoration: BoxDecoration(
-        color: AppColors.surfaceSoft,
+        color: AppColors.surfaceDark,
         borderRadius:
             BorderRadius.circular(getProportionateScreenWidth(16)),
         border: Border.all(color: AppColors.blueSoft),

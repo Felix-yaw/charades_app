@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../models/word_card.dart';
 
 const List<WordCard> allWords = [
@@ -79,6 +81,12 @@ class WordRepository {
   WordRepository({List<WordCard>? words}) : words = words ?? allWords;
 
   final List<WordCard> words;
+
+  List<WordCard> dailyDeck(DateTime date, {int count = 5}) {
+    final int seed = date.year * 10000 + date.month * 100 + date.day;
+    final List<WordCard> source = [...words]..shuffle(Random(seed));
+    return source.take(count).toList(growable: false);
+  }
 
   List<WordCard> shuffledDeck(
     WordCategory category, {

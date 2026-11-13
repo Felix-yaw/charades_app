@@ -19,8 +19,8 @@ class PlayMyWordsButton extends StatelessWidget {
         return GradientButton(
           label: 'Play My Words',
           icon: Icons.play_arrow_rounded,
-          gradient: AppGradients.blueButton,
-          foregroundColor: AppColors.white,
+          gradient: AppGradients.yellowButton,
+          foregroundColor: AppColors.ink,
           onPressed: () => context
               .read<GameViewModel>()
               .startRoundWithCategory(WordCategory.custom),

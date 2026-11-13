@@ -21,7 +21,7 @@ class MotionToggleTile extends StatelessWidget {
             vertical: getProportionateScreenHeight(10),
           ),
           decoration: BoxDecoration(
-            color: AppColors.surfaceSoft,
+            color: AppColors.surfaceDark,
             borderRadius:
                 BorderRadius.circular(getProportionateScreenWidth(20)),
           ),
@@ -49,7 +49,7 @@ class MotionToggleTile extends StatelessWidget {
                     Text(
                       'Tilt controls',
                       style:
-                          AppTypography.title.copyWith(color: AppColors.ink),
+                          AppTypography.title.copyWith(color: AppColors.white),
                     ),
                     SizedBox(height: getProportionateScreenHeight(2)),
                     Text(
@@ -65,7 +65,7 @@ class MotionToggleTile extends StatelessWidget {
               Switch(
                 value: motionControlsEnabled,
                 activeThumbColor: AppColors.white,
-                activeTrackColor: AppColors.blue,
+                activeTrackColor: AppColors.yellow,
                 inactiveThumbColor: AppColors.white,
                 inactiveTrackColor: AppColors.secondary,
                 onChanged: (bool enabled) => context

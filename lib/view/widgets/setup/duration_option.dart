@@ -29,8 +29,8 @@ class DurationOption extends StatelessWidget {
         type: MaterialType.transparency,
         child: Ink(
           decoration: BoxDecoration(
-            gradient: isSelected ? AppGradients.blueButton : null,
-            color: isSelected ? null : AppColors.surfaceSoft,
+            gradient: isSelected ? AppGradients.yellowButton : null,
+            color: isSelected ? null : AppColors.surfaceDark,
             borderRadius: borderRadius,
           ),
           child: InkWell(
@@ -48,7 +48,7 @@ class DurationOption extends StatelessWidget {
                   child: Text(
                     label,
                     style: AppTypography.title.copyWith(
-                      color: isSelected ? AppColors.white : AppColors.ink,
+                      color: isSelected ? AppColors.ink : AppColors.white,
                     ),
                   ),
                 ),

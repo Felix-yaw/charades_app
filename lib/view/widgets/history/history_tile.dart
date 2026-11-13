@@ -24,7 +24,7 @@ class HistoryTile extends StatelessWidget {
         vertical: getProportionateScreenHeight(14),
       ),
       decoration: BoxDecoration(
-        color: AppColors.surfaceSoft,
+        color: AppColors.surfaceDark,
         borderRadius:
             BorderRadius.circular(getProportionateScreenWidth(18)),
         border: Border.all(color: AppColors.blueSoft),
@@ -57,7 +57,7 @@ class HistoryTile extends StatelessWidget {
               vertical: getProportionateScreenHeight(6),
             ),
             decoration: BoxDecoration(
-              color: AppColors.yellowSoft,
+              color: AppColors.yellow,
               borderRadius:
                   BorderRadius.circular(getProportionateScreenWidth(14)),
             ),

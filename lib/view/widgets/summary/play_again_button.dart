@@ -13,7 +13,7 @@ class PlayAgainButton extends StatelessWidget {
     return GradientButton(
       label: 'Play again',
       icon: Icons.replay_rounded,
-      gradient: AppGradients.blueButton,
+      gradient: AppGradients.yellowButton,
       onPressed: () => context.read<GameViewModel>().playAgain(),
     );
   }

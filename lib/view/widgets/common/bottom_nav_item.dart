@@ -22,7 +22,7 @@ class BottomNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = isSelected ? AppColors.blue : AppColors.secondary;
+    final Color color = isSelected ? AppColors.yellow : AppColors.secondary;
     return Semantics(
       button: true,
       selected: isSelected,
@@ -39,7 +39,7 @@ class BottomNavItem extends StatelessWidget {
               vertical: getProportionateScreenHeight(6),
             ),
             decoration: BoxDecoration(
-              color: isSelected ? AppColors.blueSoft : Colors.transparent,
+              color: isSelected ? const Color(0x29FFC83D) : Colors.transparent,
               borderRadius:
                   BorderRadius.circular(getProportionateScreenWidth(18)),
             ),

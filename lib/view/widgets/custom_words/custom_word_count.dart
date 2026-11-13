@@ -17,7 +17,7 @@ class CustomWordCount extends StatelessWidget {
             wordCount == 1 ? '1 word in your pack' : '$wordCount words in your pack';
         return Text(
           wordCount == 0 ? 'Your pack is empty.' : label,
-          style: AppTypography.label.copyWith(color: AppColors.blue),
+          style: AppTypography.label.copyWith(color: AppColors.yellow),
         );
       },
     );

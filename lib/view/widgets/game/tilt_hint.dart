@@ -11,10 +11,17 @@ class TiltHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Selector<GameViewModel, bool>(
-      selector: (context, gameViewModel) => gameViewModel.motionControlsEnabled,
-      builder: (context, motionControlsEnabled, child) {
+    return Selector<GameViewModel, (bool, bool)>(
+      selector: (context, gameViewModel) => (
+        gameViewModel.motionControlsEnabled,
+        gameViewModel.reverseGestures,
+      ),
+      builder: (context, motionState, child) {
+        final (bool motionControlsEnabled, bool reversed) = motionState;
         if (!motionControlsEnabled) return const SizedBox.shrink();
+        final String hint = reversed
+            ? 'Tilt up: Pass  ·  Tilt down: Got it'
+            : 'Tilt up: Got it  ·  Tilt down: Pass';
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -28,7 +35,7 @@ class TiltHint extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  'Tilt up: Got it  ·  Tilt down: Pass',
+                  hint,
                   style: AppTypography.body.copyWith(
                     color: AppColors.secondary,
                     fontSize: getProportionateScreenWidth(13),
