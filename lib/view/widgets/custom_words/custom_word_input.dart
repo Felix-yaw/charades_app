@@ -37,7 +37,7 @@ class _CustomWordInputState extends State<CustomWordInput> {
             controller: _controller,
             textInputAction: TextInputAction.done,
             onSubmitted: (String _) => _submit(),
-            style: AppTypography.body.copyWith(color: AppColors.white),
+            style: AppTypography.body.copyWith(color: AppColors.ink),
             decoration: InputDecoration(
               hintText: 'Type a word or phrase',
               hintStyle: AppTypography.body

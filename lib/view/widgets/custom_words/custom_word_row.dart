@@ -29,7 +29,7 @@ class CustomWordRow extends StatelessWidget {
           Expanded(
             child: Text(
               word,
-              style: AppTypography.label.copyWith(color: AppColors.white),
+              style: AppTypography.label.copyWith(color: AppColors.ink),
             ),
           ),
           IconButton(
