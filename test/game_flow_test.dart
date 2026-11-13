@@ -2,6 +2,7 @@ import 'package:charades_app/main.dart';
 import 'package:charades_app/models/word_card.dart';
 import 'package:charades_app/view/screens/game_screen.dart';
 import 'package:charades_app/viewmodels/game_view_model.dart';
+import 'package:charades_app/view/widgets/setup/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -13,14 +14,17 @@ Future<void> tapVisible(WidgetTester tester, Finder finder) async {
   await tester.pumpAndSettle();
 }
 
+Finder packTile(String label) => find.descendant(
+      of: find.byType(CategoryTile), matching: find.text(label));
+
 void main() {
   testWidgets('home to countdown to playing to summary', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    expect(find.text('CHARADES'), findsOneWidget);
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('@charades'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump();
 
     expect(find.text('Get ready!'), findsOneWidget);
@@ -60,7 +64,7 @@ void main() {
   testWidgets('pass records a pass without scoring', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 3));
 
     final BuildContext gameContext = tester.element(find.byType(GameScreen));
@@ -79,7 +83,7 @@ void main() {
   testWidgets('round ends when the timer runs out', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('SUPER MIX'));
+    await tapVisible(tester, find.text('Play Now'));
     await tester.pump(const Duration(seconds: 64));
 
     expect(find.text('Round over!'), findsOneWidget);
@@ -90,7 +94,7 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
 
     await tester.tap(find.byTooltip('End round'));
@@ -100,9 +104,9 @@ void main() {
 
     await tapVisible(tester, find.text('Change settings'));
     await tester.pump();
-    expect(find.text('CHARADES'), findsOneWidget);
+    expect(find.text('@charades'), findsOneWidget);
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
     await tester.tap(find.byTooltip('End round'));
     await tester.pumpAndSettle();
@@ -118,7 +122,7 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
 
     await tester.tap(find.byTooltip('End round'));

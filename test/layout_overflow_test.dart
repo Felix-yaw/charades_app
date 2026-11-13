@@ -1,4 +1,5 @@
 import 'package:charades_app/main.dart';
+import 'package:charades_app/view/widgets/setup/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -8,6 +9,9 @@ const List<Size> deviceSizes = [
   Size(1024, 1366),
 ];
 const List<double> textScales = [1.0, 1.5, 2.0];
+
+Finder packTile(String label) => find.descendant(
+      of: find.byType(CategoryTile), matching: find.text(label));
 
 void main() {
   for (final Size deviceSize in deviceSizes) {
@@ -46,9 +50,9 @@ void main() {
         await tester.tap(find.text('Done'));
         await tester.pumpAndSettle();
 
-        await tester.ensureVisible(find.text('Animals'));
+        await tester.ensureVisible(packTile('Animals'));
         await tester.pumpAndSettle();
-        await tester.tap(find.text('Animals'));
+        await tester.tap(packTile('Animals'));
         await tester.pump(const Duration(seconds: 4));
         expect(tester.takeException(), isNull, reason: 'game screen overflow');
 

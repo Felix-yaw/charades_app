@@ -43,3 +43,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# The global git ignore on this machine excludes lib/ (Python template),
+# which would hide the entire Dart source tree — re-include Flutter paths.
+!lib/
+!android/gradlew
+!android/gradlew.bat
+!android/gradle/wrapper/gradle-wrapper.jar

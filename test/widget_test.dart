@@ -5,8 +5,8 @@ void main() {
   testWidgets('app launches on the home screen', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    expect(find.text('CHARADES'), findsOneWidget);
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('@charades'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
     expect(find.text('PICK A PACK'), findsOneWidget);
   });
 }

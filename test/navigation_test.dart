@@ -1,4 +1,6 @@
 import 'package:charades_app/main.dart';
+import 'package:charades_app/view/screens/history_screen.dart';
+import 'package:charades_app/view/widgets/setup/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,26 +11,29 @@ Future<void> tapVisible(WidgetTester tester, Finder finder) async {
   await tester.pumpAndSettle();
 }
 
+Finder packTile(String label) => find.descendant(
+      of: find.byType(CategoryTile), matching: find.text(label));
+
 void main() {
   testWidgets('bottom nav switches between custom words, packs and history',
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Custom words'));
     expect(find.text('My Words'), findsOneWidget);
     expect(find.text('No custom words yet. Add some to build your own pack.'),
         findsOneWidget);
-    expect(find.text('SUPER MIX'), findsNothing);
+    expect(find.text('Play Now'), findsNothing);
 
     await tapVisible(tester, find.byTooltip('History'));
-    expect(find.text('History'), findsOneWidget);
+    expect(find.byType(HistoryScreen), findsOneWidget);
     expect(find.text('No rounds yet. Play a round and it will show up here.'),
         findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Packs'));
-    expect(find.text('SUPER MIX'), findsOneWidget);
+    expect(find.text('Play Now'), findsOneWidget);
   });
 
   testWidgets('custom words feed the My Words pack on the packs tab',
@@ -44,9 +49,9 @@ void main() {
     expect(find.text('1 word in your pack'), findsOneWidget);
 
     await tapVisible(tester, find.byTooltip('Packs'));
-    expect(find.text('My Words'), findsOneWidget);
+    expect(packTile('My Words'), findsOneWidget);
 
-    await tapVisible(tester, find.text('My Words'));
+    await tapVisible(tester, packTile('My Words'));
     await tester.pump(const Duration(seconds: 4));
 
     expect(find.text('Got it'), findsOneWidget);
@@ -76,7 +81,7 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
     await tester.tap(find.byTooltip('End round'));
     await tester.pumpAndSettle();
