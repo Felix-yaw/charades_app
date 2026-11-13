@@ -1,4 +1,5 @@
 import 'package:charades_app/main.dart';
+import 'package:charades_app/view/widgets/setup/stat_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -12,16 +13,16 @@ void main() {
     await tester.pumpWidget(const CharadesApp());
     await tester.pumpAndSettle();
 
-    final double fontHeightBefore =
-        tester.getSize(find.text('PICK A PACK')).height;
+    final double tileHeightBefore =
+        tester.getSize(find.byType(StatTile).first).height;
 
     tester.view.physicalSize = const Size(720, 1600);
     tester.binding.handleMetricsChanged();
     await tester.pumpAndSettle();
 
-    final double fontHeightAfter =
-        tester.getSize(find.text('PICK A PACK')).height;
+    final double tileHeightAfter =
+        tester.getSize(find.byType(StatTile).first).height;
 
-    expect(fontHeightAfter, greaterThan(fontHeightBefore));
+    expect(tileHeightAfter, greaterThan(tileHeightBefore));
   });
 }

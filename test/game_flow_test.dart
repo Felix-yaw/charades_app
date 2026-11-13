@@ -17,7 +17,7 @@ void main() {
   testWidgets('home to countdown to playing to summary', (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    expect(find.text('CHARADES'), findsOneWidget);
+    expect(find.text('@charades'), findsOneWidget);
     expect(find.text('SUPER MIX'), findsOneWidget);
 
     await tapVisible(tester, find.text('Animals'));
@@ -100,7 +100,7 @@ void main() {
 
     await tapVisible(tester, find.text('Change settings'));
     await tester.pump();
-    expect(find.text('CHARADES'), findsOneWidget);
+    expect(find.text('@charades'), findsOneWidget);
 
     await tapVisible(tester, find.text('Animals'));
     await tester.pump(const Duration(seconds: 4));

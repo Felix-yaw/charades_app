@@ -1,4 +1,5 @@
 import 'package:charades_app/main.dart';
+import 'package:charades_app/view/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -23,7 +24,7 @@ void main() {
     expect(find.text('SUPER MIX'), findsNothing);
 
     await tapVisible(tester, find.byTooltip('History'));
-    expect(find.text('History'), findsOneWidget);
+    expect(find.byType(HistoryScreen), findsOneWidget);
     expect(find.text('No rounds yet. Play a round and it will show up here.'),
         findsOneWidget);
 
