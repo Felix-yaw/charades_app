@@ -21,7 +21,7 @@ class GameViewModel extends ChangeNotifier {
     CustomWordsStore? customWordsStore,
     RoundHistoryStore? historyStore,
   })  : _wordRepository = wordRepository ?? WordRepository(),
-        _motionService = motionService ?? DeviceMotionService(),
+        _motionService = motionService ?? createDefaultMotionService(),
         _customWordsStore = customWordsStore ?? CustomWordsStore(),
         _historyStore = historyStore ?? RoundHistoryStore();
 

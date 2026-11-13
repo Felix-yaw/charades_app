@@ -2,6 +2,7 @@ import 'package:charades_app/main.dart';
 import 'package:charades_app/view/screens/game_screen.dart';
 import 'package:charades_app/view/screens/home_shell_screen.dart';
 import 'package:charades_app/viewmodels/game_view_model.dart';
+import 'package:charades_app/view/widgets/setup/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,9 @@ Future<void> tapVisible(WidgetTester tester, Finder finder) async {
 }
 
 const String tiltHintText = 'Tilt up: Got it  ·  Tilt down: Pass';
+
+Finder packTile(String label) => find.descendant(
+      of: find.byType(CategoryTile), matching: find.text(label));
 
 void main() {
   testWidgets('tilt controls toggle updates the setting', (WidgetTester tester) async {
@@ -43,7 +47,7 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const CharadesApp());
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
 
     final BuildContext gameContext = tester.element(find.byType(GameScreen));
@@ -63,7 +67,7 @@ void main() {
     await tester.pump();
     await tapVisible(tester, find.text('Done'));
 
-    await tapVisible(tester, find.text('Animals'));
+    await tapVisible(tester, packTile('Animals'));
     await tester.pump(const Duration(seconds: 4));
 
     expect(find.byType(GameScreen), findsOneWidget);

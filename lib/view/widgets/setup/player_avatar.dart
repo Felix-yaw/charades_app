@@ -10,26 +10,36 @@ class PlayerAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenWidth(48),
-      height: getProportionateScreenWidth(48),
-      decoration: BoxDecoration(
+      width: getProportionateScreenWidth(52),
+      height: getProportionateScreenWidth(52),
+      padding: EdgeInsets.all(getProportionateScreenWidth(3)),
+      decoration: const BoxDecoration(
         gradient: AppGradients.purpleTile,
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.white, width: 3),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.shadow,
-            offset: Offset(0, getProportionateScreenHeight(5)),
-            blurRadius: getProportionateScreenWidth(12),
-          ),
-        ],
       ),
-      child: Center(
-        child: Text(
-          '🎭',
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(22),
-            height: 1,
+      child: Container(
+        padding: EdgeInsets.all(getProportionateScreenWidth(2)),
+        decoration: const BoxDecoration(
+          color: AppColors.surface,
+          shape: BoxShape.circle,
+        ),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFFFFB454), Color(0xFFFF8A5C)],
+            ),
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: Text(
+              '🎭',
+              style: TextStyle(
+                fontSize: getProportionateScreenWidth(22),
+                height: 1,
+              ),
+            ),
           ),
         ),
       ),
