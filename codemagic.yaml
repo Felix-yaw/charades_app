@@ -1,0 +1,39 @@
+workflows:
+  ios-testflight:
+    name: iOS -> TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      # Name of the App Store Connect API key added under
+      # Codemagic -> Team settings -> Team integrations -> Developer Portal.
+      app_store_connect: codemagic-asc-key
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.felixyaw.charades
+    scripts:
+      - name: Apply signing profiles to Xcode project
+        script: xcode-project use-profiles
+      - name: Get packages
+        script: flutter pub get
+      - name: Analyze & test
+        script: |
+          flutter analyze
+          flutter test
+      - name: Build signed IPA
+        # $BUILD_NUMBER is Codemagic's per-workflow counter, so every upload
+        # gets a new, increasing build number without editing pubspec.yaml.
+        script: |
+          flutter build ipa --release \
+            --build-number=$BUILD_NUMBER \
+            --export-options-plist=/Users/builder/export_options.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
