@@ -6,6 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 Finder packTile(String label) => find.descendant(
       of: find.byType(CategoryTile), matching: find.text(label));
 
+// Golden images are platform-specific (font rendering differs between
+// macOS, Linux and Windows), so this test is tagged and skipped in CI.
+// Run it on purpose with: flutter test --tags golden
 void main() {
   testWidgets('render ui previews', (WidgetTester tester) async {
     tester.view.physicalSize = const Size(390, 844);
@@ -36,5 +39,5 @@ void main() {
       find.byType(CharadesApp),
       matchesGoldenFile('goldens/3_summary.png'),
     );
-  });
+  }, tags: ['golden']);
 }

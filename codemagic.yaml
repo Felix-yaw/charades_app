@@ -22,7 +22,7 @@ workflows:
       - name: Analyze & test
         script: |
           flutter analyze
-          flutter test
+          flutter test --exclude-tags golden
       - name: Build signed IPA
         # $BUILD_NUMBER is Codemagic's per-workflow counter, so every upload
         # gets a new, increasing build number without editing pubspec.yaml.
